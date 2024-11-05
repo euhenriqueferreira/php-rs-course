@@ -18,7 +18,23 @@
         $descricao = 'Meu primeiro portfolio. Escrito em PHP e HTML.';
 
 
-        $projetos = [];
+        $projetos = [
+            [
+                "titulo" => "Meu Portfolio",
+                'finalizado' => false,
+                'data' => '2024-11-05',
+                'descricao' => 'Meu primeiro portfolio. Escrito em PHP e HTML.',
+            ],
+            [
+                "titulo" => "Lista de Tarefas",
+                'finalizado' => true,
+                'data' => '2024-05-10',
+                'descricao' => 'Minha lista de tarefas.',
+            ]
+            // "Lista de Tarefas",
+            // 'Controle de Leitura de Livros',
+            // 'Sistema de Gerenciamento de Projetos'
+        ];
     ?>
 
     <h1>
@@ -32,32 +48,33 @@
 
     <hr>
 
-    <div class="">
-        <h2><?=$projeto?></h2>
-        <p><?=$descricao?></p>
+    <ul>
+        <?php foreach ($projetos as $projeto):?>
+            <div 
+                <?php if((2024 - $ano) > 2): ?>
+                    style="background-color:darkseagreen;"
+                <?php endif;?>
 
-        <div
-            <?php if((2024 - $ano) > 2): ?>
-                style="background-color:cadetblue;"
-            <?php endif;?>
-        >
-            <div class=""><?=$dataprojeto?></div>
-            <div> Projeto:
-                <?php
-                    if( $finalizado ){
-                        echo ' Finalizado ✅';
-                    } else{
-                        echo ' Não finalizado ⛔';
-                    }
-                ?>
+            >
+                <h2><?=$projeto['titulo']?></h2>
+                <p><?=$projeto['descricao']?></p>
 
-                <?php if(!$finalizado): ?> 
-                    <span style="color: red; font-size: 18px">Não finalizado ⛔</span>
-                <?php else:?>
-                    <span style="color: green; font-size: 18px;">Finalizado ✅</span>
-                <?php endif; ?>
+                <div>
+                    <div class=""><?=$projeto['data']?></div>
+                    <div> Projeto:
+                        <?php if(!$projeto['finalizado']): ?> 
+                            <span style="color: red; font-size: 18px">Não finalizado ⛔</span>
+                        <?php else:?>
+                            <span style="color: green; font-size: 18px;">Finalizado ✅</span>
+                        <?php endif; ?>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
+        <?php endforeach; ?>
+    </ul>
+
+
+
+    
 </body>
 </html>
