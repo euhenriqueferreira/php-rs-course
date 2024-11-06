@@ -107,21 +107,25 @@
         //     return $filtrados;
         // }
 
-        function filtro( $itens, $funcao ){    
-            $filtrados = [];
+        // Função Genérica para Filtrar Arrays
+        // function filtro( $itens, $funcao ){    
+        //     $filtrados = [];
 
-            foreach($itens as $item){
-                if($funcao($item)){
-                    $filtrados[] = $item;
-                }
-            }
+        //     foreach($itens as $item){
+        //         if($funcao($item)){
+        //             $filtrados[] = $item;
+        //         }
+        //     }
 
-            return $filtrados;
-        }
+        //     return $filtrados;
+        // }
 
-        $projetosFiltrados = filtro($projetos, function($projeto){
-            return $projeto['ano'] == 2024 || $projeto['ano'] == 2022;
-        });
+        // $projetosFiltrados = filtro($projetos, function($projeto){
+        //     return $projeto['ano'] == 2024 || $projeto['ano'] == 2022;
+        // });
+        $projetosFiltrados = array_filter($projetos, function($projeto){
+            return $projeto['ano'] <= 2024;
+        })
         // $projetosFiltradosPorAno = filtrarPorAno($projetosFiltrados, 2024);
     ?>
 
