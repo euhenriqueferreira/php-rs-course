@@ -43,6 +43,7 @@
                 'finalizado' => false,
                 'ano' => 2022,
                 'descricao' => 'Projeto secreto em andamento.',
+                'stack'=>['PHP','HTML','CSS','JS'],
             ],
             // "Lista de Tarefas",
             // 'Controle de Leitura de Livros',
